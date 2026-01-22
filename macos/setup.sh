@@ -58,10 +58,11 @@ brew update
 # ---------------------------------------------------------------------------
 log "Installing Rancher Desktop..."
 
-brew install --cask rancher-desktop
+brew install --cask rancher
 
 # Start Rancher Desktop (first start may require user interaction)
 open -a "Rancher Desktop" || true
+
 
 # ---------------------------------------------------------------------------
 # pgAdmin 4
