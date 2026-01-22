@@ -5,7 +5,7 @@ set -euo pipefail
 # macOS bootstrap script
 # Installs:
 # - Homebrew
-# - Docker Desktop
+# - Rancher Desktop (instead of Docker Desktop)
 # - pgAdmin4
 # - Visual Studio Code
 # - JDK 21 (Temurin)
@@ -47,14 +47,21 @@ fi
 brew update
 
 # ---------------------------------------------------------------------------
-# Docker Desktop
+# Docker Desktop (DISABLED)
 # ---------------------------------------------------------------------------
-log "Installing Docker Desktop..."
+# log "Installing Docker Desktop..."
+# brew install --cask docker
+# open -a Docker || true
 
-brew install --cask docker
+# ---------------------------------------------------------------------------
+# Rancher Desktop
+# ---------------------------------------------------------------------------
+log "Installing Rancher Desktop..."
 
-# Start Docker automatically
-open -a Docker || true
+brew install --cask rancher-desktop
+
+# Start Rancher Desktop (first start may require user interaction)
+open -a "Rancher Desktop" || true
 
 # ---------------------------------------------------------------------------
 # pgAdmin 4
@@ -103,4 +110,4 @@ python3 -m pip install --upgrade pip setuptools wheel
 # ---------------------------------------------------------------------------
 log "Setup completed!"
 log "Restart terminal to apply environment changes."
-log "Start Docker Desktop once before using docker CLI."
+log "Start Rancher Desktop once and enable dockerd if you need the docker CLI."
